@@ -1,0 +1,38 @@
+<div>
+    <script>
+        var loc = {
+            lati:{{location.latitude}},
+            long:{{location.longitude}}
+            }
+    </script>
+    <script src="/public/js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5k-XaVph4-XxGmLVMXHbMmIuas4f7ksQ&callback=initMap" async defer></script>    
+    <link rel="stylesheet" href="/public/css/map.css"/>
+    <div id="details" class="col-sm-6 col-md-6 col-lg-6">
+        <ul>
+            <lh><b>We have the following details associated with this IP address:</b></lh>
+            <li>City : <em>{{locationDetails.city}}</em>.</li>
+            <li>Region : <em>{{locationDetails.region}}</em>.</li>
+            <li>TimeZone : <em>{{locationDetails.timezone}}</em>.</li>
+            <li>Country : <em>{{locationDetails.country}}</em>.</li>
+        </ul>
+    </div>
+    <div id="msg" class="col-sm-6 col-md-6 col-lg-6" style="border-left: 2px solid #e3f2fd;">
+        <fieldset><legend>AWS Message</legend>
+        <form action="/message" method="POST" id="form" name="form">
+        <label for="phone_number">* Phone  </label>( No "+1", just the phone number.)
+        <input type="tel" id="phone_number" name="phone_number" placeholder="123-456-7890" class="form-control" required>
+        
+        <label for="subject">* Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Add a Subject" class="form-control" required>
+        
+        <label for="message">* Message</label>
+        <input type="text" id="message" name="message" value= "{{locationDetails.city}}, {{locationDetails.region}} {{locationDetails.country}} [Latitude = {{location.latitude}}, Longitude = {{location.longitude}}]" placeholder="Your Text Message here" class="form-control" required>
+        <br>
+        <label for="send_msg"></label>
+        <input type="submit" id="send_msg" name="send_msg" value="Send" class="btn btn-primary" onclick="validatePhone(document.form.phone_number)">
+        </form>
+        </fieldset>
+    </div>
+    <div id="map" class="flex col-sm-12 col-md-12 col-lg-12"></div>
+</div>

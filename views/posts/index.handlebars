@@ -1,0 +1,17 @@
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="/public/js/index.js"></script>
+<link rel="stylesheet" href="/public/css/index.css"/>
+<div>
+    <div id="msg" class="col-sm-12 col-md-12 col-lg-12">{{msg}}</div>
+    <div class="col-sm-3 col-md-3 col-lg-3"></div>
+    <form action="/location" method="GET" id="form" name="form" class="col-sm-6 col-md-6 col-lg-6">
+        <label for="search_bar">Search Ip Address</label>
+        <input id="search_bar" type="text" class="form-control" name="search_bar" placeholder="IP format ###.###.###.###" required />
+        <label for="search"></label><br>
+        <button type="submit" id="search" class="btn btn-default" name="submit" value="Find" onclick="validateIp(document.form.search_bar)">
+        <span class="glyphicon glyphicon-search"></span> Find
+        </button>
+    </form>
+    <div class="col-sm-3 col-md-3 col-lg-3"></div>
+    <div id="curve_chart" class="col-sm-9 col-md-9 col-lg-9"></div>
+</div>

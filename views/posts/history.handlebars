@@ -1,0 +1,46 @@
+<div>
+  <form action="/history" method="GET" id="form" name="form" class="col-sm-6 col-md-6 col-lg-6">
+  <legend>Filter results by</legend>
+  <div class="form-row">
+    <div class="col-sm-5 col-md-5 col-lg-5">
+      <label for="entires">Number of entries</label>
+      <input type="number" min=1 step=1 class="form-control" name="entries" id="entries" placeholder="e.g 10">
+    </div>
+    <div class="col-sm-5 col-md-5 col-lg-5">
+      <label for="country">Country</label>
+      <input type="text" class="form-control" id="country" name="country" placeholder="e.g US">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <button type="submit" id="search" class="btn btn-default" name="submit" value="Find">
+        <span class="glyphicon glyphicon-search"></span> Find
+    </button></div>
+  </div>
+</form>
+    {{#if history}}
+      <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Latitude, Longitude</th>
+        <th scope="col">Country</th>
+        <th scope="col">TimeZone</th>
+        <th scope="col">City</th>
+        <th scope="col">Metro</th>
+        <th scope="col">Region</th>
+      </tr>
+    </thead>
+    <tbody>  
+    {{#each history}}
+    <tr> 
+      <td> {{{this.ll}}} </td>
+      <td> {{{this.country}}} </td>
+      <td> {{{this.timezone}}} </td>
+      <td> {{{this.city}}} </td>
+      <td> {{{this.metro}}}</td>
+      <td> {{{this.region}}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+    {{else}}
+      <div class="col-sm-12 col-md-12 col-lg-12"><p class="not-found">We're sorry, but no results were found.</p></div>
+  {{/if}}
+</div>

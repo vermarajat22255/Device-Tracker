@@ -1,3 +1,8 @@
+______________________________________________________________________________________________________
+Feel free to ask for .env file that sets up the environment before starting the application
+Any changes in region, Databases, Collection, URL or port requires modification in .env file
+______________________________________________________________________________________________________
+
 A web application that maps IP address to Global location on Map, with an feature to send a SMS to a particular user using Amazon SNS Service.
 
 Setup Guide:

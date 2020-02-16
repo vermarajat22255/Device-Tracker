@@ -1,7 +1,9 @@
 const MongoClient = require("mongodb").MongoClient;
+const dotenv = require('dotenv').config();
+
 const mongoConfig = {
-    "serverUrl": "mongodb://127.0.0.1:27017/",
-    "database": "IDT"
+    "serverUrl": process.env.serverUrl,
+    "database": process.env.database
 };
 
 let _connection = undefined;

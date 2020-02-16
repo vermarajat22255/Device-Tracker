@@ -8,9 +8,9 @@ const AWS = require('aws-sdk');
 const dotenv = require('dotenv').config();
 
 AWS.config.update({
-    region: 'us-east-1',
-    accessKeyId: 'AKIA2O7HUO6MXLMVUNSW',
-    secretAccessKey: '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'
+    region: process.env.region,
+    accessKeyId: process.env.accessKeyId,
+    secretAccessKey: process.env.secretAccessKey
 });
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

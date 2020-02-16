@@ -1,9 +1,10 @@
 const dbConnection = require("./mongoConnection");
+const dotenv = require('dotenv').config();
 
 const getLocationCollection = async() => {
 
     const db = await dbConnection();
-    _col = await db.collection("location");
+    _col = await db.collection(process.env.collectionName);
     return _col;
 };
 

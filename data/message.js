@@ -1,11 +1,4 @@
 const AWS = require('aws-sdk');
-const dotenv = require('dotenv').config();
-
-AWS.config.update({
-    region: 'us-east-1',
-    accessKeyId: 'AKIA2O7HUO6MXLMVUNSW',
-    secretAccessKey: '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'
-});
 
 const sendMessage = function sendMessage(message, phone_number, subject) {
     try {
